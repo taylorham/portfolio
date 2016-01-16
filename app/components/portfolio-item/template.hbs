@@ -1,0 +1,23 @@
+<div class="thumbnail">
+  <div class="example-header">
+    <h3>{{example.title}}</h3>
+  </div>
+  <div class="example-body">
+  <img src={{example.image}} alt={{example.title}}>
+    <div class="example-caption">
+      <div class="example-caption-text">
+        <p>{{example.blurb}}</p>
+        {{#if example.url}}
+          <a href="http://{{example.url}}">{{example.url}}</a>
+        {{/if}}
+      </div>
+      <div class="example-tags text-center">
+        {{#each example.tags as |tag|}}
+          <span class={{tag}}>{{tag}}</span>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>
+
+{{yield}}
