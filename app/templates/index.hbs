@@ -1,0 +1,80 @@
+{{#main-navbar}}{{/main-navbar}}
+
+<div id="main-content">
+
+  <div id="lead-panel">
+    <div class="container">
+      <div class="align-wrapper">
+        <div class="v-align text-center">
+          <div class="row">
+            {{#gravatar-pic size='500' class='col-sm-4 col-md-3 vcenter'}}{{/gravatar-pic}}
+            <div class="col-sm-6 col-md-5 lead-blurb vcenter">
+              <h1>My name is Taylor Ham and I'm a web developer in Los Angeles.</h1>
+              <h3>I'm an expert in HTML and CSS and have a passion for JavaScript frameworks and mobile-first design.</h3>
+              <ul class="contact-links">
+                <li>
+                  {{#icon-linkedin}}{{/icon-linkedin}}
+                </li>
+                <li>
+                  {{#icon-treehouse}}{{/icon-treehouse}}
+                </li>
+                <li>
+                  {{#icon-github}}{{/icon-github}}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="work-panel">
+    <div class="container">
+      <div class="align-wrapper">
+        <div class="v-align text-center">
+          <h1 class="panel-heading">Portfolio</h1>
+          <div class="work-example row auto-clear">
+            {{#each model.portfolioItems as |example|}}
+              {{#portfolio-item example=example}}{{/portfolio-item}}
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="training-panel">
+    <div class="container">
+      <div class="align-wrapper">
+        <div class="v-align text-center">
+          <h1 class="panel-heading">Training</h1>
+
+          {{#treehouse-widget treehouseScores=model.treehouseData.points}}{{/treehouse-widget}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+
+  $(document).ready(function() {
+    $('a[href^="#"]').on('click',function (e) {
+      e.preventDefault();
+
+      var target = this.hash;
+      var $target = $(target);
+
+      $('html, body').stop().animate({
+        'scrollTop': $target.offset().top // - 52
+      }, 300, 'swing', function () {
+        window.location.hash = target;
+      });
+    });
+  });
+
+</script>
+
+{{outlet}}
