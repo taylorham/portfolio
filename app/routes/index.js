@@ -1,5 +1,4 @@
 import Ember from 'ember';
-// import portfolioItems from './portfolioItems';
 
 export default Ember.Route.extend({
   model() {
