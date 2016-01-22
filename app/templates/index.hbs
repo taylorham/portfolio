@@ -29,7 +29,7 @@
     </div>
   </div>
 
-  <div id="work-panel">
+  <div id="portfolio-panel">
     <div class="container">
       <div class="align-wrapper">
         <div class="v-align text-center">
@@ -58,7 +58,6 @@
 </div>
 
 <script>
-
   $(document).ready(function() {
     $('a[href^="#"]').on('click',function (e) {
       e.preventDefault();
@@ -67,13 +66,19 @@
       var $target = $(target);
 
       $('html, body').stop().animate({
-        'scrollTop': $target.offset().top // - 52
+        'scrollTop': $target.offset().top - 136
       }, 300, 'swing', function () {
         window.location.hash = target;
       });
     });
   });
-
+</script>
+<script>
+  $('nav a').on('click', function() {
+    if ($('.navbar-toggle').hasClass('collapsed') == false) {
+      $('.navbar-toggle').click();
+    }
+  });
 </script>
 
 {{outlet}}
