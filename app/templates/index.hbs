@@ -59,14 +59,19 @@
 
 <script>
   $(document).ready(function() {
-    $('a[href^="#"]').on('click',function (e) {
+    $('a[href^="#"]').on('click', function(e) {
       e.preventDefault();
 
       var target = this.hash;
       var $target = $(target);
+      var topDistance = 0;
+
+      if ($('#nav-collapse').hasClass('in')) {
+        topDistance = 136;
+      }
 
       $('html, body').stop().animate({
-        'scrollTop': $target.offset().top - 136
+        'scrollTop': $target.offset().top - topDistance
       }, 300, 'swing', function () {
         window.location.hash = target;
       });
